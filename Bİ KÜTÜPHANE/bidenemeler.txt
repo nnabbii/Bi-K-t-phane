@@ -1,0 +1,80 @@
+// tailwind.config.js
+// Add the following under theme.extend.colors to enable brand palette:
+//
+// extend: {
+//   colors: {
+//     burntSienna: '#E97451',
+//     pecanPie:   '#B86B4B',
+//     driedSage:  '#8A9A5B',
+//     rosette:    '#C38E76',
+//     silkScarf:  '#EFE6DD',
+//   },
+// }
+
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+
+const images = [
+  '/images/library1.jpg',
+  '/images/cozy-reading.jpg',
+  '/images/bookshelf.jpg',
+  '/images/study-light.jpg',
+];
+
+export default function Hero() {
+  return (
+    <section className="relative w-full h-screen overflow-hidden">
+      {/* Background slideshow */}
+      <div className="absolute inset-0">
+        {images.map((src, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 20, repeat: Infinity, delay: i * 5 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={src}
+              alt={`Library scene ${i + 1}`}
+              layout="fill"
+              objectFit="cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-30" />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Overlay content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 lg:px-0">
+        <motion.h1
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="text-5xl lg:text-7xl font-bold text-silkScarf"
+        >
+          Bi Kütüphane
+        </motion.h1>
+
+        <motion.p
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mt-4 text-lg lg:text-2xl max-w-2xl text-silkScarf"
+        >
+          Konforlu okuma alanları, sıcak atmosfer ve geniş koleksiyon sizi bekliyor.
+        </motion.p>
+
+        <motion.button
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="mt-8 px-8 py-3 rounded-full text-lg font-semibold text-white"
+          style={{ backgroundColor: '#B86B4B' }} // pecanPie
+        >
+          Keşfet
+        </motion.button>
+      </div>
+    </section>
+  );
+}
