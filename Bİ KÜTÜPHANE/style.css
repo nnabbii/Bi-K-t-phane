@@ -1,0 +1,369 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #af683f, #cab091,#ffff); /* Koyu mor gradyan */
+    color: #f0f0f0; /* Açık metin rengi */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Yatay kaydırmayı engelle */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px; /* Görseldeki boşluklara göre ayarlandı */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 1.4em; 
+    font-weight: bold;
+    letter-spacing: 1px; 
+    /* Resim eklendiğinde yukarıdaki font stilleri doğrudan img etiketini etkilemez, 
+       ancak .logo div'inin genel yerleşimini etkileyebilir. */
+    /* Örneğin: margin-right: 20px; */
+}
+
+.logo-image {
+  height: 100px; 
+  width: auto;  
+  display: block; 
+}
+
+/* Eski .menu-icon ve .menu-icon span kurallarını buradan kaldırın (eğer hala varsa) */
+
+/* Yeni Navigasyon Stilleri */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Dikeyde ortalamak için */
+}
+
+.main-nav li {
+    margin-left: 25px; /* Menü elemanları arası boşluk */
+}
+
+.main-nav li:first-child {
+    margin-left: 0; /* İlk elemanın solunda fazladan boşluk olmasın */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #2a2929; /* Koyu gri - Arkaplan gradientinize göre ayarlayın */
+    font-size: 0.95em;
+    font-weight: 500; /* Biraz daha belirgin yazı */
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #fff9f9; /* Hover rengi - Arkaplan gradientinize göre ayarlayın */
+}
+
+.nav-button.signup-button {
+    margin-left: 30px; /* Diğer menü elemanlarından ayırmak için */
+    padding: 8px 20px;
+    border: 1.5px solid #4a4a4a; /* Koyu gri kenarlık */
+    border-radius: 20px; /* Yuvarlak köşeler */
+    color: #4a4a4a; /* Koyu gri yazı */
+    text-decoration: none;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-button.signup-button:hover {
+    background-color: #4a4a4a; /* Hover'da arkaplan */
+    color: #ffffff; /* Hover'da yazı rengi */
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between; /* İçerik ve görseli ayır */
+    padding: 20px 60px; /* Üstbilgi ile aynı hizada */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.content {
+    flex-basis: 45%; /* Metin içeriği için alan biraz artırıldı */
+    max-width: 500px; /* Metin bloğunun genişliğini sınırlar */
+}
+
+.content h1 {
+    font-size: 3.2em; /* Görseldeki başlık boyutu */
+    margin-bottom: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.content p {
+    font-size: 0.95em; /* Görseldeki paragraf boyutu */
+    line-height: 1.6;
+    margin-bottom: 35px; /* Butonla arasındaki boşluk */
+    max-width: 450px; /* Paragraf genişliği */
+    color: #171616; /* Biraz daha soluk beyaz */
+}
+
+.cta-button {
+    background: linear-gradient(90deg, #613b02, #861906); /* Görseldeki butona yakın gradyan */
+    color: white;
+    border: none;
+    padding: 14px 32px; /* Buton iç boşlukları */
+    font-size: 1.05em; /* Buton yazı boyutu */
+    font-weight: bold;
+    border-radius: 25px; /* Yuvarlak köşeler */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(229, 48, 158, 0.4); /* Hover efekti için gölge */
+}
+
+.illustration {
+    flex-basis: 50%; /* Görsel için alan biraz azaltıldı */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.illustration img {
+    max-width: 350px; /* Görselin maksimum genişliği ayarlandı, bu değeri ihtiyacınıza göre değiştirebilirsiniz */
+    height: auto;     /* Yükseklik otomatik olarak orantıyı koruyacak şekilde ayarlanır */
+    display: block;   /* Resmin etrafındaki olası fazladan boşlukları kaldırır */
+    box-sizing: border-box;
+    /* Kenarlık ve yer tutucu arkaplan kaldırıldı */
+    /* border: 2px dashed rgba(255, 255, 255, 0.2); Artık yok */
+    /* background-color: rgba(255, 255, 255, 0.03); Artık yok */
+    /* min-width: 300px; Artık yok */
+    /* min-height: 250px; Artık yok */
+}
+
+/* Duyarlılık Ayarları */
+@media (max-width: 992px) { /* Tablet ve altı için */
+    main {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding: 30px;
+    }
+    .content {
+        flex-basis: auto;
+        margin-bottom: 40px;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* İçeriği ortala */
+    }
+    .content p {
+        max-width: 90%; /* Daha geniş paragraf */
+    }
+    .illustration {
+        flex-basis: auto;
+        width: 70%; 
+        max-width: 450px; /* Maksimum görsel boyutu */
+        margin-top: 20px;
+    }
+    .content h1 {
+        font-size: 2.8em;
+    }
+    header {
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 576px) { /* Mobil için */
+    .content h1 {
+        font-size: 2.2em;
+    }
+    .content p {
+        font-size: 0.9em;
+    }
+    .cta-button {
+        padding: 12px 28px;
+        font-size: 1em;
+    }
+    .illustration {
+        width: 90%;
+    }
+    header {
+        padding: 15px 20px;
+    }
+    .logo {
+        font-size: 1.2em;
+    }
+}
+
+/* Duyarlılık Ayarları */
+@media (max-width: 576px) { /* Mobil için */
+    main {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding: 30px;
+    }
+    .content {
+        flex-basis: auto;
+        margin-bottom: 40px;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* İçeriği ortala */
+    }
+    .content p {
+        max-width: 90%; /* Daha geniş paragraf */
+    }
+    .illustration {
+        flex-basis: auto;
+        width: 70%; 
+        max-width: 450px; /* Maksimum görsel boyutu */
+        margin-top: 20px;
+    }
+    .content h1 {
+        font-size: 2.8em;
+    }
+    header {
+        padding: 20px 30px;
+    }
+}
+
+/* Yeni Alt Özellik Bölümü Stilleri */
+.bottom-feature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 60px; /* İç boşluklar */
+    background-color: #ffffff; /* Beyaz arkaplan (mevcut gradientinizin son rengiyle uyumlu) */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bottom-feature-content {
+    flex-basis: 45%; /* Metin içeriği için alan */
+    max-width: 550px; /* Maksimum genişlik */
+}
+
+.bottom-feature-content h2 {
+    font-size: 2.8em; /* Başlık boyutu */
+    color: #171616; /* Koyu metin rengi */
+    margin-bottom: 20px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.bottom-feature-content p {
+    font-size: 0.95em; /* Paragraf yazı boyutu */
+    color: #333333; /* Koyu gri paragraf rengi */
+    line-height: 1.6;
+    margin-bottom: 35px; /* Butonla arasındaki boşluk */
+}
+
+/* .bottom-feature içindeki .cta-button zaten mevcut stilleri alacaktır.
+   Eğer bu bölümdeki buton için farklı bir stil (örneğin görseldeki mavi buton)
+   isteniyorsa, buraya özel bir sınıf ekleyip stil tanımlanabilir.
+   Örneğin: .bottom-feature .cta-button { background: blue; }
+*/
+
+.bottom-feature-illustration {
+    flex-basis: 50%; /* İllüstrasyon için alan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-feature-illustration img {
+    max-width: 400px; /* İllüstrasyonun maksimum genişliği, ihtiyaca göre ayarlayın */
+    height: auto;
+    display: block;
+}
+
+/* Yeni Alt Özellik Bölümü için Duyarlılık Ayarları */
+@media (max-width: 992px) {
+    .bottom-feature {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+    }
+    .bottom-feature-content {
+        flex-basis: auto;
+        margin-bottom: 40px; /* İçerik ve illüstrasyon arası boşluk */
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .bottom-feature-illustration {
+        flex-basis: auto;
+        width: 70%; 
+        max-width: 350px; /* Tablette illüstrasyon boyutu */
+    }
+    .bottom-feature-content h2 {
+        font-size: 2.4em;
+    }
+}
+
+@media (max-width: 576px) {
+    .bottom-feature-content h2 {
+        font-size: 2em; /* Mobilde başlık boyutu */
+    }
+    .bottom-feature-illustration {
+        width: 90%;
+        max-width: 300px; /* Mobilde illüstrasyon boyutu */
+    }
+    .bottom-feature-content p {
+        font-size: 0.9em;
+    }
+}
+.infographic-container {
+    width: 90%;
+    margin: auto;
+    padding: 40px 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .infographic-block {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+  }
+  
+  .infographic-block .icon {
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.2);
+  }
+  
+  .infographic-block.block1 {
+    background: linear-gradient(to right, #F45D01, #F7F1EB);
+  }
+  .infographic-block.block2 {
+    background: linear-gradient(to right, #F7F1EB, #F45D01);
+  }
+  .infographic-block.block3 {
+    background: linear-gradient(to right, #1E1E1E, #34BFD9);
+  }
+  .infographic-block.block4 {
+    background: linear-gradient(to right, #34BFD9, #1D4458);
+  }
+  
